@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>تهنئة سيادة اللواء</title>
     
-    <!-- خط الرقعة الفخم والأيقونات العسكرية -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
@@ -181,15 +180,12 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            gap: 8px;
+            justify-content: space-between;
             align-items: center;
-			transform: translateY(-15px);
         }
 
-        /* تكبير اللوجو في الصفحة الثانية (الموبايل) */
         .inner-card-logo {
-            width: 90px; /* زاد من 70px */
+            width: 95px;
             height: auto;
             filter: drop-shadow(0 0 10px var(--gold));
         }
@@ -202,9 +198,8 @@
             width: 100%;
         }
 
-        /* تكبير شارتين الرتبة الوسطى (الموبايل) */
         .card-rank-img {
-            width: 85px; /* زاد من 70px */
+            width: 85px;
             height: auto;
             filter: drop-shadow(0 0 10px var(--gold));
             animation: pulseRank 3s ease-in-out infinite;
@@ -252,26 +247,32 @@
             text-align: justify;
             text-align-last: center;
             font-weight: 500;
-            padding: 0 10px;
+            padding: 0 5px;
         }
 
+        /* تعديل المسافة السفلية لرفع السطر بالقدر المطلوب سنة بسيطة لأعلى */
         .footer-note-container {
             display: flex;
-            justify-content: center;
+            justify-content: center; 
             align-items: center;
-            gap: 8px;
-            width: 100%;
+            gap: 12px; 
+            width: 95%;
+            background: rgba(212, 175, 55, 0.08); 
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 25px; /* تم رفعها هنا من 5px إلى 25px لرفعه بدقة */
         }
 
-        /* تكبير الشارتين اللي في السطر الأخير تحت (الموبايل) */
         .footer-rank-img {
-            width: 35px; /* زاد من 38px */
+            width: 32px; 
             height: auto;
             filter: drop-shadow(0 0 5px var(--gold));
+            flex-shrink: 0;
         }
 
         .footer-note {
-            font-size: 1.35rem; 
+            font-size: 1.25rem; 
             color: var(--gold);
             font-weight: bold;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
@@ -307,28 +308,26 @@
             
             .greeting-card-luxury { max-width: 550px; padding: 25px 30px; height: 90vh; }
             
-            /* تكبير اللوجو والشارات على الشاشات الكبيرة كمان لضمان الفخامة */
-            .inner-card-logo { width: 120px; } /* زاد من 100px */
-            .card-rank-img { width: 110px; } /* زاد من 95px */
+            .inner-card-logo { width: 125px; } 
+            .card-rank-img { width: 110px; } 
             
             .side-by-side-ranks { gap: 40px; }
             .main-headline { font-size: 2.6rem; }
             .sub-headline { font-size: 1.4rem; }
             .message-body { font-size: 1.4rem; line-height: 1.6; }
             
-            .footer-rank-img { width: 58px; } /* زاد من 50px */
-            .footer-note { font-size: 1.8rem; }
+            .footer-rank-img { width: 40px; } 
+            .footer-note { font-size: 1.6rem; }
+            .footer-note-container { width: 85%; gap: 15px; margin-bottom: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الأغنية الخاصة بك -->
     <audio id="birthday-player" loop preload="auto">
         <source src="https://dl.globalkiki.com/uploads/Bony%20Mwaitege%20%E2%80%93%20Happy%20Birthday.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ================= الصفحة الأولى ================= -->
     <div id="first-gate">
         <div class="logos-container">
             <img src="https://i.ibb.co/nM3HBG0x/General-services-authority.png" alt="شعار جهاز الخدمات العامة" class="main-logo-top">
@@ -345,21 +344,17 @@
         <button class="luxury-btn" onclick="openMainGate()">تشرّف بالدخول لـ مَنصَّة التَّهْنِئَة القِيَادِيَّة</button>
     </div>
 
-    <!-- ================= الصفحة الثانية ================= -->
     <div class="main-content-area">
         <div class="screen-overlay"></div>
         
         <div class="greeting-card-luxury">
-            <!-- اللوجو -->
             <img src="https://i.ibb.co/nM3HBG0x/General-services-authority.png" alt="شعار جهاز الخدمات العامة" class="inner-card-logo">
 
-            <!-- شارات الرتبة الوسطى المتناسقة -->
             <div class="side-by-side-ranks">
                 <img src="https://i.ibb.co/FLD4yV2R/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يمين" class="card-rank-img">
                 <img src="https://i.ibb.co/Tq4jxFzG/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يسار" class="card-rank-img">
             </div>
 
-            <!-- العناوين -->
             <h2 class="main-headline">أسرة القطاع المالى</h2>
             <div class="sub-headline">جهاز الخدمات العامة</div>
 
@@ -367,7 +362,6 @@
                 <i class="fa-solid fa-medal"></i>
             </div>
 
-            <!-- نص الرسالة بمسافات وأسطر دقيقة لخط الرقعة -->
             <p class="message-body">
                 بأسمى آيات التوقير والامتنان الممزوجة بأعلى درجات الفخر والاعتزاز، تتشرف أسرة القطاع المالي بأن تتقدم بخالص التهاني والتبريكات القلبية النابعة من أعماق قلوبنا إلى قائدنا وقدوتنا سيادة اللواء/ وليد على عبدالعزيز، بمناسبة عيد ميلاد سيادتكم السعيد. 
                 <br>
@@ -378,7 +372,6 @@
                 <i class="fa-solid fa-star"></i>
             </div>
 
-            <!-- السطر الأخير والشارات السفلية المستقرة تماماً داخل الشاشة -->
             <div class="footer-note-container">
                 <img src="https://i.ibb.co/FLD4yV2R/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة يمين" class="footer-rank-img">
                 
@@ -391,7 +384,6 @@
         </div>
     </div>
 
-    <!-- زر تحكم الصوت -->
     <div id="audio-widget" onclick="toggleAudio()">
         <i id="widget-icon" class="fa-solid fa-volume-high"></i>
     </div>
