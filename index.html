@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تهنئة سيادة اللواء</title>
+    
+    <!-- خط الرقعة الفخم والأيقونات العسكرية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #aa841b;
+            --military-green: #0b3223;
+            --deep-dark: #050b14;
+            --cream: #fdfbf7;
+            --neon-gold: #ffcc00;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Aref Ruqaa', serif;
+            background-color: var(--deep-dark);
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            height: -webkit-fill-available;
+            position: relative;
+        }
+
+        /* ================= الصفحة الأولى ================= */
+        #first-gate {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 999;
+            background: linear-gradient(135deg, rgba(5, 11, 20, 0.8) 0%, rgba(11, 50, 35, 0.75) 100%), 
+                        url('https://i.ibb.co/wZTnNJyB/Chat-GPT-Image-May-29-2026-10-17-16-AM.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: all 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+            border: 4px solid var(--gold);
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.9);
+        }
+
+        .logos-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .main-logo-top {
+            width: 150px;
+            max-width: 40vw;
+            height: auto;
+            filter: drop-shadow(0 0 15px var(--gold));
+        }
+
+        .gate-side-by-side-ranks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .gate-rank-img {
+            width: 90px; 
+            height: auto;
+            filter: drop-shadow(0 0 12px var(--gold));
+            animation: pulseRank 3s ease-in-out infinite;
+        }
+
+        .neon-title {
+            font-size: 2.2rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--neon-gold), 0 0 25px var(--neon-gold);
+            line-height: 1.2;
+        }
+
+        .neon-birthday-text {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 
+                0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+                0 0 42px var(--neon-gold), 0 0 82px var(--neon-gold);
+            animation: neonFlicker 2s infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+                    0 0 42px var(--neon-gold), 0 0 82px var(--neon-gold);
+            }
+            20%, 24%, 55% { text-shadow: none; }
+        }
+
+        .luxury-btn {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #050b14;
+            border: 2px solid var(--cream);
+            padding: 10px 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+            transition: all 0.4s ease;
+            font-family: 'Aref Ruqaa', serif;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .gate-collapsed {
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* ================= الصفحة الثانية ================= */
+        .main-content-area {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: url('https://i.ibb.co/nqQSZfxM/Chat-GPT-Image-May-29-2026-11-02-36-AM.png') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            padding: 12px; 
+        }
+
+        .gate-collapsed + .main-content-area {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .screen-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(5, 11, 20, 0.9) 0%, rgba(11, 50, 35, 0.85) 50%, rgba(5, 11, 20, 0.92) 100%);
+            z-index: 1;
+        }
+
+        .greeting-card-luxury {
+            position: relative;
+            z-index: 10;
+            background: rgba(5, 11, 20, 0.92);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(212, 175, 55, 0.6);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9), inset 0 0 30px rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 15px 12px; 
+            width: 100%;
+            max-width: 420px;
+            height: 94vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* تكبير اللوجو في الصفحة الثانية (الموبايل) */
+        .inner-card-logo {
+            width: 90px; /* زاد من 70px */
+            height: auto;
+            filter: drop-shadow(0 0 10px var(--gold));
+        }
+
+        .side-by-side-ranks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; 
+            width: 100%;
+        }
+
+        /* تكبير شارتين الرتبة الوسطى (الموبايل) */
+        .card-rank-img {
+            width: 85px; /* زاد من 70px */
+            height: auto;
+            filter: drop-shadow(0 0 10px var(--gold));
+            animation: pulseRank 3s ease-in-out infinite;
+        }
+
+        .main-headline {
+            font-size: 2.2rem;
+            color: var(--gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+            font-weight: 700;
+        }
+
+        .sub-headline {
+            font-size: 1.2rem;
+            color: var(--cream);
+            font-weight: bold;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 2px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .line-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .line-separator::before, .line-separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to left, transparent, var(--gold), transparent);
+        }
+        .line-separator i {
+            color: var(--gold);
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .message-body {
+            font-size: 1.2rem;
+            line-height: 1.45;
+            color: var(--cream);
+            text-align: justify;
+            text-align-last: center;
+            font-weight: 500;
+            padding: 0 5px;
+        }
+
+        .footer-note-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        /* تكبير الشارتين اللي في السطر الأخير تحت (الموبايل) */
+        .footer-rank-img {
+            width: 45px; /* زاد من 38px */
+            height: auto;
+            filter: drop-shadow(0 0 5px var(--gold));
+        }
+
+        .footer-note {
+            font-size: 1.35rem; 
+            color: var(--gold);
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            white-space: nowrap; 
+        }
+
+        #audio-widget {
+            position: fixed;
+            bottom: 20px; left: 20px; z-index: 1000;
+            background: rgba(11, 50, 35, 0.9);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s; display: none;
+        }
+
+        @keyframes pulseRank {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--gold)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 15px var(--neon-gold)); }
+        }
+
+        /* ================= الشاشات الكبيرة والكمبيوتر ================= */
+        @media (min-width: 769px) {
+            #first-gate { border: 8px solid var(--gold); }
+            .main-logo-top { width: 190px; }
+            .gate-rank-img { width: 115px; }
+            .gate-side-by-side-ranks { gap: 35px; }
+            .neon-title { font-size: 3rem; }
+            .neon-birthday-text { font-size: 4.5rem; }
+            .luxury-btn { font-size: 1.6rem; padding: 12px 40px; max-width: 400px; }
+            
+            .greeting-card-luxury { max-width: 550px; padding: 25px 30px; height: 90vh; }
+            
+            /* تكبير اللوجو والشارات على الشاشات الكبيرة كمان لضمان الفخامة */
+            .inner-card-logo { width: 120px; } /* زاد من 100px */
+            .card-rank-img { width: 110px; } /* زاد من 95px */
+            
+            .side-by-side-ranks { gap: 40px; }
+            .main-headline { font-size: 2.6rem; }
+            .sub-headline { font-size: 1.4rem; }
+            .message-body { font-size: 1.4rem; line-height: 1.6; }
+            
+            .footer-rank-img { width: 58px; } /* زاد من 50px */
+            .footer-note { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الأغنية الخاصة بك -->
+    <audio id="birthday-player" loop preload="auto">
+        <source src="https://dl.globalkiki.com/uploads/Bony%20Mwaitege%20%E2%80%93%20Happy%20Birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ================= الصفحة الأولى ================= -->
+    <div id="first-gate">
+        <div class="logos-container">
+            <img src="https://i.ibb.co/nM3HBG0x/General-services-authority.png" alt="شعار جهاز الخدمات العامة" class="main-logo-top">
+            
+            <div class="gate-side-by-side-ranks">
+                <img src="https://i.ibb.co/FLD4yV2R/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يمين" class="gate-rank-img">
+                <img src="https://i.ibb.co/Tq4jxFzG/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يسار" class="gate-rank-img">
+            </div>
+        </div>
+        
+        <h2 class="neon-title">سيادة اللواء/ وليد على عبدالعزيز</h2>
+        <h1 class="neon-birthday-text">عيد ميلاد سعيد</h1>
+        
+        <button class="luxury-btn" onclick="openMainGate()">تشرّف بالدخول لـ مَنصَّة التَّهْنِئَة القِيَادِيَّة</button>
+    </div>
+
+    <!-- ================= الصفحة الثانية ================= -->
+    <div class="main-content-area">
+        <div class="screen-overlay"></div>
+        
+        <div class="greeting-card-luxury">
+            <!-- اللوجو -->
+            <img src="https://i.ibb.co/nM3HBG0x/General-services-authority.png" alt="شعار جهاز الخدمات العامة" class="inner-card-logo">
+
+            <!-- شارات الرتبة الوسطى المتناسقة -->
+            <div class="side-by-side-ranks">
+                <img src="https://i.ibb.co/FLD4yV2R/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يمين" class="card-rank-img">
+                <img src="https://i.ibb.co/Tq4jxFzG/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة رتبة لواء يسار" class="card-rank-img">
+            </div>
+
+            <!-- العناوين -->
+            <h2 class="main-headline">أسرة القطاع المالى</h2>
+            <div class="sub-headline">جهاز الخدمات العامة</div>
+
+            <div class="line-separator">
+                <i class="fa-solid fa-medal"></i>
+            </div>
+
+            <!-- نص الرسالة بمسافات وأسطر دقيقة لخط الرقعة -->
+            <p class="message-body">
+                بأسمى آيات التوقير والامتنان الممزوجة بأعلى درجات الفخر والاعتزاز، تتشرف أسرة القطاع المالي بأن تتقدم بخالص التهاني والتبريكات القلبية النابعة من أعماق قلوبنا إلى قائدنا وقدوتنا سيادة اللواء/ وليد على عبدالعزيز، بمناسبة عيد ميلاد سيادتكم السعيد. 
+                <br>
+                ندعو الله العلي القدير في هذه المناسبة الغالية أن يفيض عليكم بوافر الصحة والبركة، وأن يمتعكم بعمرٍ مديدٍ حافلٍ بالرفعة والمسرّات، وأن يوفقكم ويسدد خطاكم لمزيد من العطاء والقيادة الحكيمة، لتبقوا دوماً رمزاً شامخاً ونبراساً يضيء لنا طريق النجاح والتميز.
+            </p>
+
+            <div class="line-separator">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <!-- السطر الأخير والشارات السفلية المستقرة تماماً داخل الشاشة -->
+            <div class="footer-note-container">
+                <img src="https://i.ibb.co/FLD4yV2R/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة يمين" class="footer-rank-img">
+                
+                <div class="footer-note">
+                    كل عام وسيادتكم بألف خير وصحة وسلامة
+                </div>
+                
+                <img src="https://i.ibb.co/Tq4jxFzG/Gemini-Generated-Image-n6hvkpn6hvkpn6hv-removebg-preview.png" alt="شارة شمال" class="footer-rank-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- زر تحكم الصوت -->
+    <div id="audio-widget" onclick="toggleAudio()">
+        <i id="widget-icon" class="fa-solid fa-volume-high"></i>
+    </div>
+
+    <script>
+        const audio = document.getElementById('birthday-player');
+        const gate = document.getElementById('first-gate');
+        const audioBtn = document.getElementById('audio-widget');
+
+        function openMainGate() {
+            audio.muted = false;
+            var playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    console.log("الأغنية تعمل بنجاح");
+                }).catch(error => {
+                    audio.muted = true;
+                    audio.play();
+                    setTimeout(() => { audio.muted = false; }, 100);
+                });
+            }
+
+            gate.classList.add('gate-collapsed');
+            
+            setTimeout(() => {
+                audioBtn.style.display = 'flex';
+            }, 1000);
+        }
+
+        function toggleAudio() {
+            const icon = document.getElementById('widget-icon');
+            if (audio.paused) {
+                audio.play();
+                icon.className = 'fa-solid fa-volume-high';
+            } else {
+                audio.pause();
+                icon.className = 'fa-solid fa-volume-xmark';
+            }
+        }
+    </script>
+</body>
+</html>
